@@ -1,0 +1,8 @@
+{
+  "name": "Jinnu Makeup Artist",
+  "description": "Premium bridal makeup and hairstyling services in Jodhpur, offering elegant, professional beauty transformations for your special occasions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

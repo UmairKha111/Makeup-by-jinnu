@@ -136,7 +136,7 @@ export const servicesData: ServiceItem[] = [
       "Coordinated styling for bridal party groups",
       "Long-lasting comfort through multi-hour events",
     ],
-    image: IMAGE_ASSETS.makeupApplication,
+    image: IMAGE_ASSETS.artistPortrait1,
     imageAlt: "Professional studio makeup application for special occasions",
     aspectRatio: "4:3",
     whatsappSubject: "Party & Occasion Makeup",

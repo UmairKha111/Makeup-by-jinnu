@@ -14,6 +14,8 @@ import hairstyleHollywoodWaves from "../assets/images/Elegant Indian Bridal Port
 import makeupApplication from "../assets/images/makeup_application_studio_1791960673484.jpg";
 import destinationWeddingBride from "../assets/images/destination_wedding_bride_1791960674452.jpg";
 import artistPortrait from "../assets/images/Ornate Floral Bridal Portrait.png";
+import artistPortrait1 from "../assets/images/Glamorous Traditional Bridal Portrait.png";
+import artistPortrait11 from "../assets/images/Radiant Indian Bridal Portrait.png";
 
 export const IMAGE_ASSETS = {
   /** Primary Hero Bridal Portrait (3:4 vertical editorial crop) */
@@ -34,6 +36,7 @@ export const IMAGE_ASSETS = {
   destinationWeddingBride,
   /** Certified Makeup Artist & Hairstylist Jinnu Portrait */
   artistPortrait,
+  artistPortrait1,artistPortrait11,
 } as const;
 
 export type ImageAssetKey = keyof typeof IMAGE_ASSETS;

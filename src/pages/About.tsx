@@ -78,7 +78,7 @@ export const About: React.FC = () => {
             >
               <div className="border border-[#D8BE9A]/50 p-2.5 bg-white/60">
                 <EditorialImage
-                  src={IMAGE_ASSETS.artistPortrait || siteConfig.about.images.secondary}
+                  src={IMAGE_ASSETS.makeupApplication || siteConfig.about.images.secondary}
                   alt="Jinnu Makeup Artist - Certified Professional in Jodhpur"
                   aspectRatio="3:4"
                   priority

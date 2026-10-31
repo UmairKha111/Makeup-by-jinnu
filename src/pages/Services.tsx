@@ -24,9 +24,11 @@ export const Services: React.FC = () => {
               <span aria-hidden="true">·</span>
               <span>{siteConfig.location.city} &amp; Worldwide</span>
             </div>
+
             <h1 className="mt-4 font-serif-editorial text-4xl sm:text-5xl text-[#29211E] text-balance leading-tight">
               Tailored Makeup &amp; Hairstyling for Every Wedding Milestone
             </h1>
+
             <p className="mt-4 text-base text-[#29211E]/80 leading-relaxed">
               Every event carries its own lighting, attire palette, and emotional rhythm. We
               customize each service around your personal preferences and schedule—available at our
@@ -54,26 +56,33 @@ export const Services: React.FC = () => {
         <div className="max-w-[1280px] mx-auto px-5 md:px-8 divide-y divide-[#29211E]/10">
           {servicesData.map((service, index) => {
             const isEven = index % 2 === 0;
+
             return (
               <article
                 key={service.id}
                 id={service.id}
                 className="py-14 md:py-20 scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
               >
+                {/* Service Image */}
                 <div
                   className={`lg:col-span-5 ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
                   <div className="border border-[#D8BE9A]/50 p-2.5 bg-white/60">
-                    <EditorialImage
-                      src={service.image}
-                      alt={service.imageAlt}
-                      aspectRatio={service.aspectRatio === "16:9" ? "4:3" : service.aspectRatio}
-                    />
+                    <div className="w-full flex items-center justify-center overflow-hidden bg-[#FAF6F0]">
+                      <div className="w-full h-auto [&_img]:!w-full [&_img]:!h-auto [&_img]:!max-h-none [&_img]:!object-contain [&_img]:!object-center">
+                        <EditorialImage
+                          src={service.image}
+                          alt={service.imageAlt}
+                          aspectRatio="auto"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
+                {/* Service Content */}
                 <div
                   className={`lg:col-span-7 ${
                     isEven ? "lg:order-2" : "lg:order-1"
@@ -98,6 +107,7 @@ export const Services: React.FC = () => {
                       <h3 className="text-xs uppercase tracking-widest text-[#B89A62] font-medium">
                         Suitable Occasions
                       </h3>
+
                       <ul className="mt-2.5 space-y-1.5 text-sm text-[#29211E]/80">
                         {service.suitableOccasions.map((occ) => (
                           <li key={occ}>{occ}</li>
@@ -109,6 +119,7 @@ export const Services: React.FC = () => {
                       <h3 className="text-xs uppercase tracking-widest text-[#B89A62] font-medium">
                         Service Focus
                       </h3>
+
                       <ul className="mt-2.5 space-y-1.5 text-sm text-[#29211E]/80">
                         {service.highlights.map((hl) => (
                           <li key={hl}>{hl}</li>
@@ -117,6 +128,7 @@ export const Services: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* Service Actions */}
                   <div className="mt-8 pt-6 border-t border-[#29211E]/10 flex flex-wrap items-center gap-4">
                     <a
                       href={getServiceWhatsAppUrl(service.whatsappSubject)}
@@ -150,14 +162,17 @@ export const Services: React.FC = () => {
             <p className="text-xs uppercase tracking-widest text-[#B89A62] font-medium">
               Custom Multi-Event Bookings
             </p>
+
             <h2 className="mt-2 font-serif-editorial text-3xl text-[#29211E] text-balance">
               Planning Multiple Wedding Functions or a Destination Celebration?
             </h2>
+
             <p className="mt-2 text-sm text-[#29211E]/75 leading-relaxed">
               Share your wedding itinerary, dates, and location on WhatsApp to receive availability
               details tailored to your events.
             </p>
           </div>
+
           <a
             href={getGeneralWhatsAppUrl()}
             target="_blank"

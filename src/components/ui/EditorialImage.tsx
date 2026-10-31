@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import { Sparkles } from "lucide-react";
 
 export interface EditorialImageProps {
@@ -12,7 +13,10 @@ export interface EditorialImageProps {
   fallbackLabel?: string;
 }
 
-const aspectClasses: Record<NonNullable<EditorialImageProps["aspectRatio"]>, string> = {
+const aspectClasses: Record<
+  NonNullable<EditorialImageProps["aspectRatio"]>,
+  string
+> = {
   "3:4": "aspect-[3/4]",
   "4:3": "aspect-[4/3]",
   "16:9": "aspect-[16/9]",
@@ -30,34 +34,58 @@ export const EditorialImage: React.FC<EditorialImageProps> = ({
   objectPosition = "center center",
   fallbackLabel,
 }) => {
-  const [currentSrc, setCurrentSrc] = useState(src);
-  const [hasTriedFallback, setHasTriedFallback] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
 
+  const [loadedSrc, setLoadedSrc] = useState("");
+  const [fallbackForSrc, setFallbackForSrc] = useState("");
+  const [errorSrc, setErrorSrc] = useState("");
+
+  // Determine the image currently being displayed
+  const currentSrc =
+    fallbackForSrc === src
+      ? `/images/${src.split("/").pop()?.split("?")[0]}`
+      : src;
+
+  const isLoaded = loadedSrc === currentSrc;
+  const hasError = errorSrc === currentSrc;
+
+  // Handle cached images and already completed requests
   useEffect(() => {
-    setCurrentSrc(src);
-    setHasTriedFallback(false);
-    setHasError(false);
-    setIsLoaded(false);
-  }, [src]);
+    const image = imageRef.current;
 
+    if (image?.complete && image.naturalWidth > 0) {
+      setLoadedSrc(currentSrc);
+    }
+  }, [currentSrc]);
+
+  // Handle successful image loading
+  const handleLoad = (
+    event: React.SyntheticEvent<HTMLImageElement>
+  ) => {
+    if (event.currentTarget.naturalWidth > 0) {
+      setLoadedSrc(currentSrc);
+    }
+  };
+
+  // Handle image loading errors
   const handleError = () => {
-    if (!hasTriedFallback) {
-      setHasTriedFallback(true);
-      // Try to extract filename and use public /images/ folder as secondary fallback
-      const filename = currentSrc.split("/").pop()?.split("?")[0] || "";
-      if (filename && !currentSrc.startsWith("/images/")) {
-        setCurrentSrc(`/images/${filename}`);
+    if (currentSrc === src && !src.startsWith("/images/")) {
+      const filename = src.split("/").pop()?.split("?")[0];
+
+      if (filename) {
+        setFallbackForSrc(src);
         return;
       }
     }
-    setHasError(true);
+
+    setErrorSrc(currentSrc);
   };
 
   return (
     <div
-      className={`relative overflow-hidden bg-[#E8D8CB]/40 ${aspectClasses[aspectRatio]} ${className}`}
+      className={`relative overflow-hidden bg-[#E8D8CB]/40 ${
+        aspectClasses[aspectRatio]
+      } ${className}`}
     >
       {!hasError ? (
         <>
@@ -67,16 +95,19 @@ export const EditorialImage: React.FC<EditorialImageProps> = ({
               className="absolute inset-0 bg-gradient-to-br from-[#FAF6F0] via-[#E8D8CB]/60 to-[#D8BE9A]/30 animate-pulse"
             />
           )}
+
           <img
+            ref={imageRef}
+            key={currentSrc}
             src={currentSrc}
             alt={alt}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
-            referrerPolicy="no-referrer"
+            fetchPriority={priority ? "high" : "auto"}
             style={{ objectPosition }}
-            onLoad={() => setIsLoaded(true)}
+            onLoad={handleLoad}
             onError={handleError}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
+            className={`relative block w-full h-full object-cover transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             } ${imgClassName}`}
           />
@@ -84,9 +115,11 @@ export const EditorialImage: React.FC<EditorialImageProps> = ({
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-[#FAF6F0] via-[#E8D8CB] to-[#D8BE9A]/40 border border-[#D8BE9A]/40">
           <Sparkles className="w-6 h-6 text-[#B89A62] mb-3 stroke-[1.25]" />
+
           <p className="font-serif-editorial text-lg text-[#29211E] tracking-wide">
             {fallbackLabel || alt}
           </p>
+
           <span className="mt-1 text-xs text-[#29211E]/60">
             Jinnu Makeup Artist · Portfolio Archive
           </span>

@@ -161,7 +161,22 @@ export const portfolioData: PortfolioItem[] = [
     occasion: "Bridal Suite & Occasion Styling",
     styleNotes:
       "Layered cream and powder illumination with soft lace hair adornment for pre-wedding mornings and intimate gatherings.",
-    image: IMAGE_ASSETS.makeupApplication,
+    image: IMAGE_ASSETS.artistPortrait11,
+    imageAlt:
+      "Makeup artist applying highlighter with brush during bridal preparation session",
+    aspectRatio: "4:3",
+    featuredOnHome: false,
+    isHairstyleShowcase: true,
+  },
+  {
+    id: "look-studio-occasion-prep",
+    title: "Bridal Suite Luminosity & Prep",
+    category: "Party Makeup",
+    hairstyleCategory: "Braids & Half-Up",
+    occasion: "Bridal Suite & Occasion Styling",
+    styleNotes:
+      "Layered cream and powder illumination with soft lace hair adornment for pre-wedding mornings and intimate gatherings.",
+    image: IMAGE_ASSETS.artistPortrait1,
     imageAlt:
       "Makeup artist applying highlighter with brush during bridal preparation session",
     aspectRatio: "4:3",

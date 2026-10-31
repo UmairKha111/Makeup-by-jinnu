@@ -92,188 +92,104 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. BESPOKE SERVICES */}
-      <section className="py-16 md:py-24 bg-[#E8D8CB]/30 border-b border-[#29211E]/10">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#29211E]/10">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#B89A62] font-semibold">
-                Bespoke Beauty Offerings
-              </p>
-              <h2 className="mt-2 font-serif-editorial text-3xl md:text-4xl lg:text-5xl text-[#29211E] text-balance">
-                Signature Makeup &amp; Hairstyling Services
-              </h2>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#29211E] hover:text-[#B89A62] transition-colors whitespace-nowrap shrink-0"
-            >
-              <span>View Detailed Service Guide</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.map((service) => (
-              <article
-                key={service.id}
-                className="bg-[#FAF6F0] border border-[#29211E]/10 flex flex-col justify-between transition-all hover:border-[#B89A62] hover:shadow-md"
-              >
-                <div>
-                  <EditorialImage
-                    src={service.image}
-                    alt={service.imageAlt}
-                    aspectRatio="4:3"
-                    className="border-b border-[#29211E]/10"
-                  />
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-xs text-[#B89A62] tabular-nums font-semibold">
-                      <span>{service.number}.</span>
-                      <span>{service.suitableOccasions[0]}</span>
-                    </div>
-                    <h3 className="mt-2 font-serif-editorial text-2xl text-[#29211E]">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2.5 text-sm text-[#29211E]/75 leading-relaxed">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
 
-                <div className="px-6 pb-6 pt-4 border-t border-[#29211E]/10 flex items-center justify-between gap-4">
-                  <a
-                    href={getServiceWhatsAppUrl(service.whatsappSubject)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-[#29211E] hover:text-[#B89A62] transition-colors whitespace-nowrap shrink-0"
-                  >
-                    <span>Enquire on WhatsApp</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                  <Link
-                    to={`/services#${service.id}`}
-                    className="text-xs text-[#29211E]/60 hover:text-[#29211E] transition-colors whitespace-nowrap shrink-0"
-                  >
-                    Details &rarr;
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 4. CURATED LOOKBOOK & EDITORIAL PORTFOLIO */}
-      <section className="py-16 md:py-24 bg-[#FAF6F0] border-b border-[#29211E]/10">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#B89A62] font-semibold">
-                Curated Lookbook
-              </p>
-              <h2 className="mt-2 font-serif-editorial text-3xl md:text-4xl lg:text-5xl text-[#29211E] text-balance">
-                Selected Bridal &amp; Editorial Works
-              </h2>
-            </div>
+   
+{/* 3. BESPOKE SERVICES */}
+<section className="py-12 md:py-24 bg-[#E8D8CB]/30 border-b border-[#29211E]/10">
+  <div className="max-w-[1280px] mx-auto px-4 sm:px-5 md:px-8">
 
-            {/* Interactive Filter Controls */}
-            <div
-              role="tablist"
-              aria-label="Filter portfolio by category"
-              className="flex flex-wrap items-center gap-1.5 p-1 bg-[#E8D8CB]/50 border border-[#29211E]/10"
-            >
-              {portfolioCategories.map((category) => {
-                const isActive = activeCategory === category;
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setActiveCategory(category)}
-                    className={`px-3.5 py-2 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                      isActive
-                        ? "bg-[#29211E] text-[#FAF6F0]"
-                        : "text-[#29211E]/75 hover:text-[#29211E]"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                );
-              })}
+    {/* Section Header */}
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-7 md:pb-10 border-b border-[#29211E]/10">
+      <div>
+        <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#B89A62] font-semibold">
+          Bespoke Beauty Offerings
+        </p>
+
+        <h2 className="mt-2 font-serif-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#29211E] text-balance">
+          Signature Makeup &amp; Hairstyling Services
+        </h2>
+      </div>
+
+      <Link
+        to="/services"
+        className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-medium uppercase tracking-widest text-[#29211E] hover:text-[#B89A62] transition-colors whitespace-nowrap shrink-0"
+      >
+        <span>View Detailed Service Guide</span>
+        <ArrowRight className="w-4 h-4" />
+      </Link>
+    </div>
+
+    {/* Services Grid */}
+    <div className="mt-7 md:mt-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 items-start lg:items-stretch gap-3 sm:gap-5 lg:gap-8">
+
+      {servicesData.map((service) => (
+        <article
+          key={service.id}
+          className="min-w-0 h-auto lg:h-full bg-[#FAF6F0] border border-[#29211E]/10 flex flex-col transition-all duration-300 hover:border-[#B89A62] hover:shadow-md"
+        >
+
+          {/* Service Image */}
+          <div className="w-full h-[110px] sm:h-40 md:h-52 lg:h-64 shrink-0 overflow-hidden border-b border-[#29211E]/10 bg-[#FAF6F0]">
+            <div className="w-full h-full [&_img]:!w-full [&_img]:!h-full [&_img]:!max-h-none [&_img]:!object-cover [&_img]:!object-top">
+              <EditorialImage
+                src={service.image}
+                alt={service.imageAlt}
+                aspectRatio="4:3"
+              />
             </div>
           </div>
 
-          {/* Editorial Portfolio Grid */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {filteredPortfolio.map((item, index) => (
-              <div
-                key={item.id}
-                className="group bg-white/70 border border-[#29211E]/10 flex flex-col justify-between hover:border-[#B89A62] transition-colors"
-              >
-                <button
-                  type="button"
-                  onClick={() => setLightboxIndex(index)}
-                  aria-label={`Open full-screen view of ${item.title}`}
-                  className="relative block w-full text-left overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-[#B89A62]"
-                >
-                  <EditorialImage
-                    src={item.image}
-                    alt={item.imageAlt}
-                    aspectRatio="3:4"
-                    imgClassName="group-hover:scale-[1.03] transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#29211E]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end justify-between p-5">
-                    <span className="text-xs uppercase tracking-widest text-[#FAF6F0]">
-                      Inspect Look
-                    </span>
-                    <Expand className="w-4 h-4 text-[#FAF6F0]" />
-                  </div>
-                </button>
+          {/* Service Information */}
+          <div className="p-3 sm:p-5 md:p-6 flex-1 min-w-0">
 
-                <div className="p-5">
-                  <div className="flex items-center gap-2 text-xs text-[#29211E]/60">
-                    <span>{item.category}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{item.occasion}</span>
-                  </div>
-                  <h3 className="mt-1.5 font-serif-editorial text-xl text-[#29211E]">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
+            <div className="flex items-start gap-1.5 text-[9px] sm:text-xs text-[#B89A62] tabular-nums font-semibold leading-relaxed">
+              <span className="shrink-0">{service.number}.</span>
+              <span className="line-clamp-2">
+                {service.suitableOccasions[0]}
+              </span>
+            </div>
+
+            <h3 className="mt-1.5 sm:mt-2 font-serif-editorial text-base sm:text-xl md:text-2xl text-[#29211E] leading-snug line-clamp-2">
+              {service.title}
+            </h3>
+
+            <p className="mt-2 sm:mt-2.5 text-[11px] sm:text-sm text-[#29211E]/75 leading-relaxed line-clamp-3">
+              {service.shortDescription}
+            </p>
+
           </div>
 
-          {/* Clean action bar without private gallery references */}
-          <div className="mt-10 pt-8 border-t border-[#29211E]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-6">
-              <Link
-                to="/portfolio"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-xs font-medium uppercase tracking-widest bg-[#29211E] text-[#FAF6F0] hover:bg-[#B89A62] hover:text-[#29211E] transition-colors whitespace-nowrap shrink-0"
-              >
-                <span>Explore Complete Portfolio</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/hairstyles"
-                className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#29211E] hover:text-[#B89A62] transition-colors whitespace-nowrap shrink-0"
-              >
-                <span>Explore Hairstyle Gallery</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          {/* Card Footer */}
+          <div className="mt-3 lg:mt-auto px-3 sm:px-5 md:px-6 py-2.5 sm:py-4 border-t border-[#29211E]/10 flex items-center justify-between gap-1.5">
 
             <a
-              href="#instagram"
-              className="inline-flex items-center gap-2 text-xs font-medium text-[#29211E]/80 hover:text-[#B89A62] transition-colors"
+              href={getServiceWhatsAppUrl(service.whatsappSubject)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs font-medium uppercase tracking-wide sm:tracking-wider text-[#29211E] hover:text-[#B89A62] transition-colors whitespace-nowrap"
             >
-              <Instagram className="w-4 h-4 text-[#B89A62]" />
-              <span>See Instagram Reels ({siteConfig.instagramHandle})</span>
+              <span>Enquire on WhatsApp</span>
+              <ArrowUpRight className="w-3 h-3 shrink-0" />
             </a>
+
+            <Link
+              to={`/services#${service.id}`}
+              className="text-[9px] sm:text-xs text-[#29211E]/60 hover:text-[#29211E] transition-colors whitespace-nowrap shrink-0"
+            >
+              Details →
+            </Link>
+
           </div>
-        </div>
-      </section>
+
+        </article>
+      ))}
+
+    </div>
+  </div>
+</section>
+
 
       {/* 5. INSTAGRAM REELS & LOOKBOOK POSTS */}
       <InstagramSection />

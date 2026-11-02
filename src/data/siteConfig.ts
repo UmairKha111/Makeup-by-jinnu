@@ -16,6 +16,10 @@ import destinationWeddingBride from "../assets/images/destination_wedding_bride_
 import artistPortrait from "../assets/images/Ornate Floral Bridal Portrait.png";
 import artistPortrait1 from "../assets/images/Glamorous Traditional Bridal Portrait.png";
 import artistPortrait11 from "../assets/images/Radiant Indian Bridal Portrait.png";
+import artistPortrait2 from "../assets/images/Elegant Floral Bridal Portrait.png";
+import artistPortrait3 from "../assets/images/Elegant Lavender Glamour Portrait.png";
+import artistPortrait4 from "../assets/images/Elegant Ivory Bridal Portrait.png";
+import artistPortrait5 from "../assets/images/Radiant South Asian Bridal Portrait.png";
 
 export const IMAGE_ASSETS = {
   /** Primary Hero Bridal Portrait (3:4 vertical editorial crop) */
@@ -36,7 +40,7 @@ export const IMAGE_ASSETS = {
   destinationWeddingBride,
   /** Certified Makeup Artist & Hairstylist Jinnu Portrait */
   artistPortrait,
-  artistPortrait1,artistPortrait11,
+  artistPortrait1,artistPortrait11,artistPortrait2,artistPortrait3,artistPortrait4,artistPortrait5,
 } as const;
 
 export type ImageAssetKey = keyof typeof IMAGE_ASSETS;

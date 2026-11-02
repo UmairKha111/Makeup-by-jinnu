@@ -49,15 +49,61 @@ export const hairstyleCategories: HairstyleCategory[] = [
 ];
 
 export const portfolioData: PortfolioItem[] = [
+{
+  id: "look-lavender-glam-bridal",
+  title: "Lavender Pearl Glamour Look",
+  category: "Reception",
+  hairstyleCategory: "Modern Bridal Updo & Curls",
+  occasion: "Engagement & Reception",
+  styleNotes:
+    "Soft luminous complexion, pink-toned glam makeup, defined eyes, glossy rose lips, and voluminous half-up high ponytail with delicate pearl hair accents. Styled with a lavender embellished outfit and statement diamond jewelry.",
+  image: IMAGE_ASSETS.artistPortrait5,
+  imageAlt:
+    "Lavender bridal makeup look with pearl-accented high ponytail, diamond jewelry, and soft pink glam makeup",
+  aspectRatio: "3:4",
+  featuredOnHome: true,
+  isHairstyleShowcase: true,
+},
+
+{
+  id: "look-champagne-ivory-couture",
+  title: "Champagne & Ivory Couture Bridal",
+  category: "Bridal",
+  hairstyleCategory: "Traditional & Veil Styling",
+  occasion: "Royal Wedding Ceremony",
+  styleNotes:
+    "Luminous warm complexion, soft bronze-gilded eyelids, dramatic winged eyeliner, muted rose lip tint, and traditional bridal styling with an ivory dupatta, intricate Kundan and pearl head jewelry, and elegant gold embroidery.",
+  image: IMAGE_ASSETS.artistPortrait4,
+  imageAlt:
+    "Indian bride in champagne ivory embroidered bridal outfit with Kundan jewelry, pearl headpiece, and elegant bridal makeup",
+  aspectRatio: "3:4",
+  featuredOnHome: true,
+  isHairstyleShowcase: true,
+},
+{
+  id: "look-peach-floral-glam",
+  title: "Peach Floral Glamour Look",
+  category: "Soft Glam",
+  hairstyleCategory: "Braided Updo & Floral Styling",
+  occasion: "Engagement & Wedding Celebration",
+  styleNotes:
+    "Fresh luminous complexion, soft peach blush, shimmering rose-gold eyeshadow, defined lashes, and nude pink lips. Finished with an elegant braided updo, delicate floral hair accessories, antique gold statement jewelry, and a richly embroidered peach outfit.",
+  image: IMAGE_ASSETS.artistPortrait2,
+  imageAlt:
+    "Indian bridal peach makeup look with floral braided hairstyle, antique gold jewelry, and embroidered peach outfit",
+  aspectRatio: "3:4",
+  featuredOnHome: true,
+  isHairstyleShowcase: true,
+},
   {
     id: "look-champagne-bridal",
     title: "Champagne & Ivory Couture Bridal",
-    category: "Bridal",
+    category: "Hairstyling",
     hairstyleCategory: "Traditional & Veil Styling",
     occasion: "Royal Wedding Ceremony",
     styleNotes:
       "Luminous warm complexion, soft bronze-gilded eyelids, muted rose lip tint, and structured bridal updo with traditional head jewelry and floral accents.",
-    image: IMAGE_ASSETS.heroBridalMakeup,
+    image: IMAGE_ASSETS.artistPortrait3,
     imageAlt:
       "Indian bridal look in champagne gold lehenga with Kundan jewelry and luminous makeup",
     aspectRatio: "3:4",
